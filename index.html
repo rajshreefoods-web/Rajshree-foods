@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#34452f">
+<meta name="description" content="Raajshree Foods — Taste Like Home. Discover homemade chutneys, pickles and ladoos.">
+<title>Raajshree Foods | Taste Like Home</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #34452f;
+  --green2: #536448;
+  --cream: #fff9ed;
+  --yellow: #f1c94b;
+  --red: #a83e2d;
+  --ink: #28291f;
+  --muted: #747366;
+  --white: #ffffff;
+  --line: #e9e0cd;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+}
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+button { cursor: pointer; }
+img { max-width: 100%; }
+.wrap { width: min(1120px, 92%); margin: auto; }
+.top-note {
+  background: var(--green);
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 12px;
+  letter-spacing: .7px;
+}
+header {
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  min-width: 0;
+}
+.brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+}
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--green);
+}
+.tagline { font-size: 11px; color: var(--red); letter-spacing: 1.4px; }
+.nav { display: flex; align-items: center; gap: 20px; }
+.nav a { text-decoration: none; font-size: 13px; font-weight: 600; }
+.nav a:hover { color: var(--red); }
+.cart-button, .btn {
+  border: 0;
+  border-radius: 5px;
+  padding: 12px 17px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.cart-button, .btn-green { background: var(--green); color: white; }
+.btn-yellow { background: var(--yellow); color: var(--green); }
+.btn-outline { border: 1px solid var(--green); color: var(--green); background: transparent; }
+.btn-red { background: var(--red); color: white; }
+.btn:hover, .cart-button:hover { filter: brightness(.94); }
+.page { display: none; min-height: 60vh; }
+.page.active { display: block; }
+.hero {
+  background: var(--green);
+  color: white;
+  padding: 58px 0 65px;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 40px;
+  align-items: center;
+}
+.eyebrow {
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+h1 { font-size: clamp(38px, 5vw, 62px); margin: 13px 0 18px; }
+h2 { font-size: clamp(29px, 4vw, 42px); margin: 0 0 14px; }
+h3 { margin: 0 0 9px; font-size: 22px; }
+.hero p { color: #e6e8df; max-width: 510px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.hero-art {
+  min-height: 300px;
+  border: 1px solid #71806a;
+  border-radius: 48% 48% 10px 10px;
+  background: #46573e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px;
+}
+.hero-art img { width: 190px; height: 190px; object-fit: contain; border-radius: 50%; }
+.hero-art p { color: var(--yellow); font-family: 'Playfair Display', serif; font-size: 23px; margin-bottom: 0; }
+.section { padding: 58px 0; }
+.section-head { text-align: center; max-width: 650px; margin: 0 auto 28px; }
+.section-head p { color: var(--muted); }
+.choice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.choice {
+  text-align: left;
+  padding: 30px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--ink);
+}
+.choice:hover { border-color: var(--green); transform: translateY(-2px); }
+.choice-icon { font-size: 32px; margin-bottom: 10px; }
+.choice p { color: var(--muted); }
+.text-link { color: var(--red); font-weight: 700; text-decoration: none; }
+.strip { background: #f4ead5; padding: 18px 0; }
+.strip-inner { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 15px; text-align: center; font-size: 13px; font-weight: 700; color: var(--green); }
+.filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin: 22px 0 30px; }
+.filter {
+  background: transparent; border: 1px solid var(--line); color: var(--green);
+  border-radius: 30px; padding: 9px 17px; font-size: 13px; font-weight: 700;
+}
+.filter.active { background: var(--green); color: white; border-color: var(--green); }
+.products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.product {
+  background: white; border: 1px solid var(--line); border-radius: 8px;
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.product-art {
+  min-height: 170px; display: grid; place-items: center;
+  background: #f2e8d1; font-size: 70px;
+}
+.product-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+.pill {
+  display: inline-block; background: #edf0e7; color: var(--green);
+  font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 20px;
+  margin-bottom: 9px; align-self: flex-start;
+}
+.product p { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+.price { color: var(--green); font-weight: 700; font-size: 19px; margin-top: auto; }
+.product-bottom { display: flex; gap: 8px; align-items: center; margin-top: 13px; }
+.product-bottom button { flex: 1; font-size: 12px; padding: 10px 8px; }
+.note { color: var(--muted); font-size: 12px; text-align: center; margin-top: 20px; }
+.feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.feature { padding: 23px; background: white; border: 1px solid var(--line); border-radius: 8px; }
+.feature span { font-size: 28px; }
+.feature p { color: var(--muted); font-size: 13px; }
+.page-heading { background: var(--green); color: white; padding: 42px 0; }
+.page-heading p { color: #e3e8dc; margin-bottom: 0; }
+.panel { background: white; border: 1px solid var(--line); padding: 24px; border-radius: 8px; }
+.cart-layout { display: grid; grid-template-columns: 1.3fr .7fr; gap: 22px; align-items: start; }
+.cart-row { display: flex; justify-content: space-between; gap: 14px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.cart-row:last-child { border-bottom: 0; }
+.cart-row small { display: block; color: var(--muted); }
+.qty { display: flex; align-items: center; gap: 9px; margin-top: 8px; }
+.qty button { width: 28px; height: 28px; background: var(--cream); border: 1px solid var(--line); border-radius: 4px; }
+.field { margin: 13px 0; }
+.field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 5px; }
+.field input, .field textarea, .field select {
+  width: 100%; padding: 12px; border: 1px solid #d9d2c1; border-radius: 5px; background: white;
+}
+.field textarea { min-height: 95px; resize: vertical; }
+.help { color: var(--muted); font-size: 12px; }
+.empty { padding: 35px 10px; text-align: center; color: var(--muted); }
+.wholesale-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: start; }
+footer { background: #263323; color: white; padding: 38px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 25px; }
+footer p, footer a { color: #d4dbcf; font-size: 13px; }
+footer a { display: block; margin: 5px 0; text-decoration: none; }
+.footer-bottom { border-top: 1px solid #50604a; margin-top: 25px; padding-top: 15px; font-size: 11px; color: #cbd2c5; }
+.toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: var(--green); color: white; padding: 12px 18px; border-radius: 6px; display: none; z-index: 100; max-width: 90%; text-align: center; }
+@media(max-width: 760px) {
+  .nav { gap: 10px; }
+  .nav a { display: none; }
+  .hero-grid, .cart-layout, .wholesale-grid { grid-template-columns: 1fr; }
+  .hero-art { min-height: 240px; }
+  .hero-art img { width: 145px; height: 145px; }
+  .products { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+  .product-art { min-height: 125px; font-size: 55px; }
+  .product-body { padding: 12px; }
+  .product h3 { font-size: 18px; }
+  .product-bottom { flex-direction: column; align-items: stretch; }
+  .choice-grid, .feature-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+  .brand-name { font-size: 18px; }
+  .brand img { width: 48px; height: 48px; }
+  .cart-button { padding: 10px 12px; font-size: 12px; }
+  .section { padding: 42px 0; }
+}
+</style>
+</head>
+
+<body>
+<div class="top-note">HOMEMADE GOODNESS · TASTE LIKE HOME</div>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="brand" href="#" onclick="showPage('home');return false;">
+      <img src="logo.png" alt="Raajshree Foods logo" onerror="this.style.display='none'">
+      <div>
+        <div class="brand-name">Raajshree Foods</div>
+        <div class="tagline">TASTE LIKE HOME</div>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#" onclick="showPage('home');return false;">Home</a>
+      <a href="#" onclick="showPage('shop');return false;">Shop</a>
+      <a href="#" onclick="showPage('retailer');return false;">Retailers</a>
+      <button class="cart-button" onclick="showPage('cart')">🛒 Cart <span id="cartCount">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Made with care, shared with love</div>
+        <h1>A little taste of home in every bite.</h1>
+        <p>Discover comforting flavours, homemade favourites and snacks made to bring people together.</p>
+        <div class="hero-actions">
+          <button class="btn btn-yellow" onclick="showPage('shop')">Explore our products →</button>
+          <button class="btn btn-outline" style="border-color:#e8e9df;color:white" onclick="showPage('retailer')">Wholesale enquiries</button>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="logo.png" alt="Rajshree Foods" onerror="this.style.display='none'">
+        <p>Taste Like Home</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <span>♥ Homemade-style flavours</span>
+      <span>✦ Made for sharing</span>
+      <span>⌂ Customer & retailer enquiries</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" style="color:var(--red)">Welcome to Raajshree Foods</div>
+        <h2>How would you like to shop?</h2>
+        <p>Choose the experience that works for you.</p>
+      </div>
+      <div class="choice-grid">
+        <button class="choice" onclick="showPage('shop')">
+          <div class="choice-icon">🛍️</div>
+          <h3>I'm a Customer</h3>
+          <p>Browse our products, add your favourites to the cart and send us your order enquiry.</p>
+          <span class="text-link">Explore products →</span>
+        </button>
+        <button class="choice" onclick="showPage('retailer')">
+          <div class="choice-icon">🏪</div>
+          <h3>I'm a Retailer</h3>
+          <p>Interested in stocking Raajshree Foods? Tell us about your shop and wholesale requirements.</p>
+          <span class="text-link">Explore wholesale →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background:#f4ead5">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Made for everyday moments</h2>
+        <p>Bring something familiar and flavourful to your table.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature"><span>🥭</span><h3>Pickles</h3><p>A flavourful accompaniment to everyday meals.</p></div>
+        <div class="feature"><span>🥥</span><h3>Dry Coconut Chutney</h3><p>A convenient favourite to enjoy with your meals.</p></div>
+        <div class="feature"><span>🍡</span><h3>Ladoos</h3><p>A sweet treat for family moments and celebrations.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="shop">
+  <div class="page-heading"><div class="wrap">
+    <div class="eyebrow">Discover your favourites</div><h1 style="font-size:44px;margin-bottom:8px">Our Products</h1>
+    <p>Browse the catalogue and add products to your cart.</p>
+  </div></div>
+  <div class="section"><div class="wrap">
+    <div class="filters">
+      <button class="filter active" data-category="All" onclick="filterProducts('All',this)">All products</button>
+      <button class="filter" data-category="Pickles" onclick="filterProducts('Pickles',this)">Pickles</button>
+      <button class="filter" data-category="Chutneys" onclick="filterProducts('Chutneys',this)">Chutneys</button>
+      <button class="filter" data-category="Sweets" onclick="filterProducts('Sweets',this)">Ladoos</button>
+    </div>
+    <div class="products" id="productGrid"></div>
+    <p class="note">Prices and pack sizes shown are examples. Please confirm actual prices before accepting orders.</p>
+  </div></div>
+</section>
+
+<section class="page" id="cart">
+  <div class="page-heading"><div class="wrap"><div class="eyebrow">Your selection</div><h1 style="font-size:44px;margin-bottom:8px">Your Cart</h1><p>Review your items before sending an enquiry.</p></div></div>
+  <div class="section"><div class="wrap cart-layout">
+    <div class="panel"><h2 style="font-size:27px">Items in your cart</h2><div id="cartItems"></div></div>
+    <div class="panel">
+      <h3>Order enquiry</h3>
+      <p class="help">This opens WhatsApp with your order details. Your order is not confirmed until Raajshree Foods replies.</p>
+      <div class="field"><label for="custName">Your name *</label><input id="custName" autocomplete="name" placeholder="Enter your name"></div>
+      <div class="field"><label for="custPhone">Phone number *</label><input id="custPhone" inputmode="tel" autocomplete="tel" placeholder="Enter your phone number"></div>
+      <div class="field"><label for="custPin">Delivery PIN code *</label><input id="custPin" inputmode="numeric" maxlength="6" placeholder="6-digit PIN code"></div>
+      <p class="help">Delivery is available within India only. International delivery is not available.</p>
+      <div class="field"><label for="custAddress">Delivery address *</label><textarea id="custAddress" autocomplete="street-address" placeholder="Building, street, area, city"></textarea></div>
+      <div class="field"><label for="custNotes">Additional notes</label><textarea id="custNotes" placeholder="Preferred delivery time or questions"></textarea></div>
+      <div id="cartTotal" class="price" style="margin-bottom:15px">Total: ₹0</div>
+      <button class="btn btn-green" style="width:100%" onclick="sendCustomerOrder()">Send order enquiry on WhatsApp</button>
+      <p class="help">Delivery fees and availability will be confirmed before payment.</p>
+    </div>
+  </div></div>
+</section>
+
+<section class="page" id="retailer">
+  <div class="page-heading"><div class="wrap">
+    <div class="eyebrow">For shops and resellers</div><h1 style="font-size:44px;margin-bottom:8px">Let's grow together.</h1>
+    <p>Interested in stocking Raajshree Foods? Send us a wholesale enquiry.</p>
+  </div></div>
+  <div class="section"><div class="wrap wholesale-grid">
+    <div>
+      <h2>Partner with Raajshree Foods</h2>
+      <p>We welcome enquiries from retailers, grocery shops, food stores and resellers interested in our product range.</p>
+      <div class="feature"><span>📦</span><h3>Product catalogue</h3><p>Ask us about available products, pack sizes and current pricing.</p></div>
+      <div class="feature" style="margin-top:14px"><span>🤝</span><h3>Wholesale discussion</h3><p>Share your requirements so we can discuss suitability, minimum quantities and repeat orders.</p></div>
+      <p class="help">Wholesale rates, minimum order quantities, availability and delivery terms must be confirmed directly with us.</p>
+    </div>
+    <div class="panel">
+      <h3>Retailer enquiry form</h3>
+      <div class="field"><label for="retName">Your name *</label><input id="retName" placeholder="Your name"></div>
+      <div class="field"><label for="retShop">Shop / business name *</label><input id="retShop" placeholder="Business name"></div>
+      <div class="field"><label for="retPhone">Phone number *</label><input id="retPhone" inputmode="tel" placeholder="Your phone number"></div>
+      <div class="field"><label for="retCity">City and PIN code *</label><input id="retCity" placeholder="e.g. Andheri, Mumbai 400053"></div>
+      <div class="field"><label for="retType">Business type</label>
+        <select id="retType"><option>Grocery / Kirana store</option><option>Food shop</option><option>Reseller</option><option>Distributor</option><option>Other</option></select>
+      </div>
+      <div class="field"><label for="retProducts">Products and estimated quantity</label><textarea id="retProducts" placeholder="Which products are you interested in?"></textarea></div>
+      <button class="btn btn-green" style="width:100%" onclick="sendRetailerEnquiry()">Send wholesale enquiry on WhatsApp</button>
+    </div>
+  </div></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><div class="brand-name" style="color:var(--yellow)">Raajshree Foods</div><p>Taste Like Home.</p><p>Homemade-style favourites for your everyday table.</p></div>
+      <div><strong>Explore</strong><a href="#" onclick="showPage('home');return false">Home</a><a href="#" onclick="showPage('shop');return false">Our products</a><a href="#" onclick="showPage('retailer');return false">Retailer enquiries</a></div>
+      <div><strong>Contact</strong><p>For orders and wholesale enquiries, use the forms on this website.</p><p>WhatsApp contact will be configured before launch.</p></div>
+    </div>
+    <div class="footer-bottom">© <span id="year"></span> Rajshree Foods · Taste Like Home. All rights reserved.</div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/*
+  BEFORE LAUNCH:
+  1. Replace WHATSAPP_NUMBER with your business WhatsApp number.
+     Use country code 91 followed by the number, without + or spaces.
+  2. Replace example prices and pack sizes with actual product details.
+  3. Confirm food labels, ingredients, allergens, shelf life, delivery
+     terms and applicable FSSAI/GST requirements before selling.
+  4. This starter site does not store orders or accept online payments.
+*/
+const WHATSAPP_NUMBER = "91+8779450503";
+
+const products = [
+
+  { id: "mango", name: "Mango Pickle", category: "Pickles", emoji: "🥭", prices: { "100 g": 55, "200 g": 99, "500 g": 275 } },
+  { id: "sour-mango", name: "Sour Mango Pickle", category: "Pickles", emoji: "🥭", prices: { "100 g": 55, "200 g": 99, "500 g": 275 } },
+{ id: "mixed-veg", name: "Mixed Vegetable Pickle", category: "Pickles", emoji: "🥒", prices: { "100 g": 55, "200 g": 99, "500 g": 275 } },
+
+  { id: "chilli", name: "Chilli Pickle", category: "Pickles", emoji: "🌶️", prices: { "100 g": 55, "200 g": 99, "500 g": 275 } },
+  { id: "sweet-lemon", name: "Sweet Lemon Pickle", category: "Pickles", emoji: "🍋", prices: { "100 g": 55, "200 g": 99, "500 g": 275 } },
+  { id: "sour-lemon", name: "Sour Lemon Pickle", category: "Pickles", emoji: "🍋", prices: { "100 g": 55, "200 g": 99, "500 g": 275 } },
+  { id: "garlic-pickle", name: "Garlic Pickle", category: "Pickles", emoji: "🧄", prices: { "100 g": 59, "200 g": 110, "500 g": 290 } },
+  { id: "garlic-chutney", name: "Garlic Chutney", category: "Chutneys", emoji: "🧄", prices: { "100 g": 80 } },
+  { id: "sesame-chutney", name: "Black Sesame (तीलकुट) Chutney", category: "Chutneys", emoji: "", prices: { "100 g": 80 } },
+  { id: "peanut-chutney", name: "Peanut Chutney", category: "Chutneys", emoji: "", prices: { "100 g": 80 } },
+  { id: "flax-chutney", name: "Flax Chutney", category: "Chutneys", emoji: "", prices: { "100 g": 80 } },
+  { id: "dry-fruit-ladoo", name: "Dry Fruits Ladoo", category: "Ladoos", emoji: "", prices: { "250 g": 375, "500 g": 650 } },
+  { id: "methi-ladoo", name: "Methi Ladoo", category: "Ladoos", emoji: "", prices: { "250 g": 250, "500 g": 500 } },
+  { id: "dinka-ladoo", name: "Dinka Ladoo", category: "Ladoos", emoji: "", prices: { "250 g": 375, "500 g": 650 } }
+];
+
+let cart = {};
+let activeCategory = "All";
+
+function rupees(amount) {
+  return "₹" + amount.toLocaleString("en-IN");
+}
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  const page = document.getElementById(id);
+  if (page) page.classList.add("active");
+  if (id === "cart") renderCart();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function notify(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.display = "block";
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => toast.style.display = "none", 2600);
+}
+function filterProducts(category, button) {
+  activeCategory = category;
+  document.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
+  button.classList.add("active");
+  renderProducts();
+}
+
+function renderProducts() {
+  const grid = document.getElementById("productGrid");
+  const shown = products.filter(p =>
+    activeCategory === "All" || p.category === activeCategory
+  );
+
+  grid.innerHTML = shown.map(p => {
+    const sizes = Object.keys(p.prices);
+    const firstSize = sizes[0];
+    const firstPrice = p.prices[firstSize];
+
+    return `
+      <article class="product">
+        <div class="product-art" aria-hidden="true">${p.emoji || "🍱"}</div>
+        <div class="product-body">
+          <span class="pill">${p.category}</span>
+          <h3>${p.name}</h3>
+          <p>Homemade goodness, made with care.</p>
+
+          <label for="size-${p.id}">Choose pack size</label>
+          <select id="size-${p.id}" onchange="updateProductPrice('${p.id}')">
+            ${sizes.map(size =>
+              `<option value="${size}">${size} — ₹${p.prices[size]}</option>`
+            ).join("")}
+          </select>
+
+          <div class="price" id="price-${p.id}">${rupees(firstPrice)}</div>
+
+          <div class="product-bottom">
+            <button class="btn btn-green"
+              onclick="addToCart('${p.id}', document.getElementById('size-${p.id}').value)">
+              Add to cart
+            </button>
+            <button class="btn btn-outline"
+              onclick="quickEnquiry('${p.id}')">Ask us</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function updateProductPrice(id) {
+  const product = products.find(p => p.id === id);
+  const select = document.getElementById("size-" + id);
+  if (!product || !select) return;
+
+  document.getElementById("price-" + id).textContent =
+    rupees(product.prices[select.value]);
+}
+
+
+function addToCart(id, size) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+
+  const selectedSize = size || Object.keys(product.prices)[0];
+  const key = id + "__" + selectedSize;
+
+  cart[key] = (cart[key] || 0) + 1;
+  updateCount();
+  notify("Added to your cart");
+}
+
+function changeQty(key, amount) {
+  cart[key] = (cart[key] || 0) + amount;
+  if (cart[key] <= 0) delete cart[key];
+  updateCount();
+  renderCart();
+}
+
+function updateCount() {
+  const count = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+  document.getElementById("cartCount").textContent = count;
+}
+
+function cartTotal() {
+  return Object.entries(cart).reduce((sum, entry) => {
+    const [key, qty] = entry;
+    const parts = key.split("__");
+    const product = products.find(p => p.id === parts[0]);
+    if (!product) return sum;
+    return sum + (product.prices[parts[1]] || 0) * qty;
+  }, 0);
+}
+
+function renderCart() {
+  const box = document.getElementById("cartItems");
+  const entries = Object.entries(cart);
+
+  if (!entries.length) {
+    box.innerHTML = '<div class="empty"><p>Your cart is empty.</p></div>';
+  } else {
+    box.innerHTML = entries.map(([key, qty]) => {
+      const [id, size] = key.split("__");
+      const p = products.find(product => product.id === id);
+      if (!p) return "";
+
+      const price = p.prices[size] || 0;
+
+      return `
+        <div class="cart-row">
+          <div>
+            <strong>${p.emoji || ""} ${p.name}</strong>
+            <small>${size} · ${rupees(price)} each</small>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty('${key}', -1)">−</button>
+            <span>${qty}</span>
+            <button onclick="changeQty('${key}', 1)">+</button>
+          </div>
+          <strong>${rupees(price * qty)}</strong>
+        </div>
+      `;
+    }).join("");
+  }
+
+  const total = document.getElementById("cartTotal");
+  if (total) total.textContent = rupees(cartTotal());
+}
+
+function validWhatsApp() {
+  if (!/^[0-9]{10,15}$/.test(WHATSAPP_NUMBER) || WHATSAPP_NUMBER.includes("X")) {
+    notify("Business WhatsApp number has not been configured yet.");
+    return false;
+  }
+  return true;
+}
+function openWhatsApp(message) {
+  if (!validWhatsApp()) return;
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+function quickEnquiry(id) {
+  const p = products.find(item => item.id === id);
+  openWhatsApp("Hello Rajshree Foods! I would like to enquire about " + p.name + " (" + p.size + "). Please share the current price and availability.");
+}
+function sendCustomerOrder() {
+  if (!Object.keys(cart).length) { notify("Please add at least one product first."); return; }
+  const name = document.getElementById("custName").value.trim();
+  const phone = document.getElementById("custPhone").value.trim();
+  const pin = document.getElementById("custPin").value.trim();
+  const address = document.getElementById("custAddress").value.trim();
+  const notes = document.getElementById("custNotes").value.trim();
+  if (!name || !phone || !/^[0-9]{6}$/.test(pin) || !address) {
+    notify("Please fill in your name, phone, 6-digit PIN code and address.");
+    return;
+  }
+const lines = Object.entries(cart).map(([key, qty]) => {
+  const [id, size] = key.split("__");
+  const product = products.find(p => p.id === id);
+  if (!product) return "";
+  const price = product.prices[size] || 0;
+  return `${product.name} (${size}) x ${qty} = ${rupees(price * qty)}`;
+}).filter(Boolean);
+
+  const message = [
+    "Hello Rajshree Foods! I'd like to enquire about placing an order.",
+    "", "Name: " + name, "Phone: " + phone, "PIN code: " + pin,
+    "Address: " + address, "", "Items:", ...lines,
+    "Estimated product total: " + rupees(cartTotal()),
+"Delivery is available within India only. We do not deliver outside India.",
+"Delivery charges and availability: please confirm.",
+    notes ? "Notes: " + notes : "",
+    "", "Please confirm availability, final price and payment instructions."
+  ].filter(Boolean).join("\n");
+  openWhatsApp(message);
+}
+function sendRetailerEnquiry() {
+  const name = document.getElementById("retName").value.trim();
+  const shop = document.getElementById("retShop").value.trim();
+  const phone = document.getElementById("retPhone").value.trim();
+  const city = document.getElementById("retCity").value.trim();
+  const type = document.getElementById("retType").value;
+  const interest = document.getElementById("retProducts").value.trim();
+  if (!name || !shop || !phone || !city) {
+    notify("Please fill in your name, business name, phone and city/PIN.");
+    return;
+  }
+  const message = [
+    "Hello Rajshree Foods! I am interested in a wholesale/retailer partnership.",
+    "", "Name: " + name, "Business: " + shop, "Phone: " + phone,
+    "City/PIN: " + city, "Business type: " + type,
+    "Product and quantity requirements: " + (interest || "Please share your wholesale catalogue."),
+    "", "Please share wholesale prices, minimum order quantity and delivery details."
+  ].join("\n");
+  openWhatsApp(message);
+}
+document.getElementById("year").textContent = new Date().getFullYear();
+renderProducts();
+updateCount();
+</script>
+</body>
+</html>
