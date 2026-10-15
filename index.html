@@ -285,8 +285,81 @@ footer a { display: block; margin: 5px 0; text-decoration: none; }
   0%, 5% { opacity: 0; }
   12%, 38% { opacity: 1; }
   50%, 100% { opacity: 0; }
+/* Responsive layout for mobile and iPad */
+
+* {
+    box-sizing: border-box;
+    }
+
+html,
+body {
+width: 100%;
+max-width: 100%;
+margin: 0;
+overflow-x: hidden;
 }
 
+img {
+max-width: 100%;
+}
+
+.wrap {
+width: min(100% - 32px, 1180px);
+margin-inline: auto;
+}
+
+.hero-grid {
+grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
+@media (max-width: 768px) {
+.wrap {
+width: calc(100% - 28px);
+}
+
+.header-inner {
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.nav {
+flex-wrap: wrap;
+justify-content: center;
+gap: 8px;
+}
+
+.hero {
+padding: 36px 0;
+}
+
+.hero-grid {
+grid-template-columns: minmax(0, 1fr);
+gap: 24px;
+}
+
+.hero-art {
+min-width: 0;
+width: 100%;
+}
+
+.choice-grid {
+grid-template-columns: minmax(0, 1fr);
+}
+
+.section {
+padding: 36px 0;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+.wrap {
+width: calc(100% - 40px);
+}
+
+.hero-grid {
+gap: 24px;
+}
+}
 </style>
 </head>
 
