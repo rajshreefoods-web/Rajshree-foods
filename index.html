@@ -232,7 +232,51 @@ footer a { display: block; margin: 5px 0; text-decoration: none; }
   .brand img { width: 48px; height: 48px; }
   .cart-button { padding: 10px 12px; font-size: 12px; }
   .section { padding: 42px 0; }
+  
+.hero-art.food-slideshow {
+  position: relative;
+  overflow: hidden;
 }
+
+.hero-art.food-slideshow .food-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  opacity: 0;
+  animation: foodFade 12s infinite;
+}
+
+.hero-art.food-slideshow .slide-one {
+  animation-delay: 0s;
+}
+
+.hero-art.food-slideshow .slide-two {
+  animation-delay: 6s;
+}
+
+.hero-art.food-slideshow .slideshow-caption {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  text-align: center;
+  color: #f1c94b;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes foodFade {
+  0%, 5% { opacity: 0; }
+  12%, 38% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
 </style>
 </head>
 
@@ -270,9 +314,18 @@ footer a { display: block; margin: 5px 0; text-decoration: none; }
           <button class="btn btn-outline" style="border-color:#e8e9df;color:white" onclick="showPage('retailer')">Wholesale enquiries</button>
         </div>
       </div>
-      <div class="hero-art">
-  <img src="logo.png" alt=" Rajshree Foods" onerror="this.style.display='none'">
-  <p>Taste Like Home</p>
+      <div class="hero-art food-slideshow">
+  <img src="WhatsApp Image 2026-10-16 at 00.39.02.jpeg"
+       alt="Homemade Rajshree Foods pickle"
+       class="food-slide slide-one">
+
+  <video class="food-slide slide-two"
+         autoplay muted loop playsinline>
+    <source src="WhatsApp Video 2026-10-16 at 00.32.19.mp4"
+            type="video/mp4">
+  </video>
+
+  <div class="slideshow-caption">Taste Like Home</div>
 </div>
     </div>
   </div>
