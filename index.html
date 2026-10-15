@@ -389,7 +389,7 @@ footer a { display: block; margin: 5px 0; text-decoration: none; }
   </div></div>
 </section>
 </main>
-
+<div id="faq-placeholder"></div>
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -651,6 +651,7 @@ function sendRetailerEnquiry() {
 document.getElementById("year").textContent = new Date().getFullYear();
 renderProducts();
 updateCount();
+
 </script>
   
 <section id="faq" style="background:#f8f3e7; color:#28351f; padding:40px 20px; margin-top:30px;">
@@ -736,6 +737,14 @@ updateCount();
       <p>Yes, contact us through WhatsApp for product and delivery enquiries.</p>
     </details>
   </div>
-</section>
+</section> 
+  <script>
+const faqSection = document.getElementById("faq");
+const faqPlaceholder = document.getElementById("faq-placeholder");
+
+if (faqSection && faqPlaceholder) {
+  faqPlaceholder.replaceWith(faqSection);
+}
+</script>
 </body>
 </html>
