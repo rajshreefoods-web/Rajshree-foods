@@ -652,31 +652,88 @@ document.getElementById("year").textContent = new Date().getFullYear();
 renderProducts();
 updateCount();
 </script>
-  <section id="faq" style="background:#f8f3e7; color:#28351f; padding:40px 20px; margin-top:30px;">
+  
+<section id="faq" style="background:#f8f3e7; color:#28351f; padding:40px 20px; margin-top:30px;">
   <div style="max-width:800px; margin:0 auto;">
     <h2 style="font-family:'Playfair Display',serif; text-align:center; font-size:30px; margin-bottom:25px;">
       Frequently Asked Questions
     </h2>
 
-    <details style="border-bottom:1px solid #d8cdb7; padding:16px 0;">
-      <summary style="cursor:pointer; font-weight:600;">
-        Are the products returnable?
-      </summary>
+    <style>
+      #faq details {
+        border-bottom: 1px solid #d8cdb7;
+        padding: 16px 0;
+      }
+      #faq summary {
+        cursor: pointer;
+        font-weight: 600;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      #faq summary::-webkit-details-marker {
+        display: none;
+      }
+      #faq summary::after {
+        content: "⌄";
+        color: #8b6b26;
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      #faq details[open] summary::after {
+        content: "⌃";
+      }
+      #faq details p {
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+    </style>
+
+    <details>
+      <summary>Are the products returnable?</summary>
       <p>No, our products are not returnable.</p>
     </details>
 
-    <details style="border-bottom:1px solid #d8cdb7; padding:16px 0;">
-      <summary style="cursor:pointer; font-weight:600;">
-        Is Cash on Delivery (COD) available?
-      </summary>
+    <details>
+      <summary>Is Cash on Delivery (COD) available?</summary>
       <p>No, Cash on Delivery (COD) is not available.</p>
     </details>
 
-    <details style="border-bottom:1px solid #d8cdb7; padding:16px 0;">
-      <summary style="cursor:pointer; font-weight:600;">
-        Is same-day delivery available?
-      </summary>
+    <details>
+      <summary>Is same-day delivery available?</summary>
       <p>No, same-day delivery is not available.</p>
+    </details>
+
+    <details>
+      <summary>What products can I explore?</summary>
+      <p>Explore our range of homemade pickles, chutneys and ladoos.</p>
+    </details>
+
+    <details>
+      <summary>How can I check product prices and sizes?</summary>
+      <p>Visit the Explore section to view available products, sizes and prices.</p>
+    </details>
+
+    <details>
+      <summary>Can I order multiple products together?</summary>
+      <p>Yes, you can add multiple products to your cart and submit an order enquiry.</p>
+    </details>
+
+    <details>
+      <summary>How can I contact Rajshree Foods?</summary>
+      <p>Use the contact details or WhatsApp enquiry option on our website.</p>
+    </details>
+
+    <details>
+      <summary>Can retailers enquire about wholesale orders?</summary>
+      <p>Yes, retailers can enquire about wholesale prices and minimum order quantities.</p>
+    </details>
+
+    <details>
+      <summary>Can I enquire about a product before ordering?</summary>
+      <p>Yes, contact us through WhatsApp for product and delivery enquiries.</p>
     </details>
   </div>
 </section>
