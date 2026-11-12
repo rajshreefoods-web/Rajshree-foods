@@ -360,6 +360,67 @@ width: calc(100% - 40px);
 gap: 24px;
 }
 }
+
+/* Home page hero image */
+#home .hero-art.food-slideshow {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: clamp(300px, 34vw, 440px);
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  background: var(--green);
+}
+
+#home .hero-art.food-slideshow .food-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  opacity: 1;
+  animation: none;
+}
+
+/* Fade the photo into the green on its left edge */
+#home .hero-art.food-slideshow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    var(--green) 0%,
+    rgba(52, 69, 47, 0.82) 12%,
+    rgba(52, 69, 47, 0.35) 32%,
+    rgba(52, 69, 47, 0) 58%
+  );
+}
+
+#home .hero-art.food-slideshow .slideshow-caption {
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  #home .hero-art.food-slideshow {
+    height: 280px;
+  }
+
+  #home .hero-art.food-slideshow::after {
+    background: linear-gradient(
+      90deg,
+      var(--green) 0%,
+      rgba(52, 69, 47, 0.62) 18%,
+      rgba(52, 69, 47, 0) 65%
+    );
+  }
+}  
 </style>
 </head>
 
@@ -401,7 +462,6 @@ gap: 24px;
   <img src="WhatsApp Image 2026-10-16 at 00.39.02.jpeg"
        alt="Homemade Rajshree Foods pickle"
        class="food-slide slide-one">
-
   <div class="slideshow-caption">Taste Like Home2</div>
 </div>
     </div>
